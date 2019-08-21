@@ -10,10 +10,61 @@
 					location.href = "index.html";
 				}
 			}
+			
+			window.onload = function(){
+				chamarAPI();
+			}
+			
+			function chamarAPI(){
+				const endpoint = "https://api.exchangeratesapi.io/latest";
+				var request = new XMLHttpRequest();
+				// Call Back
+				request.addEventListener("load", respostaAPI);
+				request.open("GET", endpoint);
+				request.send();
+			}
+			
+			function respostaAPI(){
+				// console.log(this);
+				var oResposta = JSON.parse(this.responseText);
+				var url = new URL(location.href);
+				
+				var sMoedaOrigem = url.searchParams.get("origem");
+				var sMoedaDestino = url.searchParams.get("destino");
+				var sMoedaDefault = oResposta.base;
+				var sDataConsulta = oResposta.date;
+				var sDia = sDataConsulta.substring(8, 10);
+				var sMes = sDataConsulta.substring(5, 7);
+				var sAno = sDataConsulta.substring(0, 4);
+				sDataConsulta = sDia + "/" + sMes + "/" + sAno;
+				if(sMoedaDefault == sMoedaOrigem){
+					var fvalor = oResposta.rates[sMoedaDestino];
+				}
+				else {
+					var fvalorOrigem = oResposta.rates[sMoedaOrigem];
+					var fvalorDestino = oResposta.rates[sMoedaDestino];
+					if (fvalorOrigem != 0){
+						var fvalor = fvalorDestino / fvalorOrigem;
+					}
+				}
+				document.querySelector("#valor_destino").innerText = fvalor;
+				document.querySelector("#moeda_destino").innerText = sMoedaDestino;
+				document.querySelector("#moeda_origem").innerText = sMoedaOrigem;
+				document.querySelector("#data_consulta").innerText = sDataConsulta;
+			}
+			
 		</script>
 	</head>
 	<boby>
 		<h1>O resultado é...</h1>
+		<p>
+			1 <span id="moeda_origem">EUR</span> é igual a
+			<span id="valor_destino">X</span>
+			<span id="moeda_destino">BRL</span>
+		</p>
+		<p>
+			Data da cotação: <span id="data_consulta">21/08/2019</span>
+		</p>
 		<button type="button" onclick="voltar()">
 			voltar
 		</button>
