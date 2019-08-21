@@ -18,7 +18,7 @@
 			function chamarAPI(){
 				const endpoint = "https://api.exchangeratesapi.io/latest";
 				var request = new XMLHttpRequest();
-				// Call Back
+				// Call Back - Lê o resultado da API
 				request.addEventListener("load", respostaAPI);
 				request.open("GET", endpoint);
 				request.send();
