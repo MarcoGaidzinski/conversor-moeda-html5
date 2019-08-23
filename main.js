@@ -1,6 +1,6 @@
 function chamarAPI(){
 	console.log("Chamando API");
-	const endpoint = "https://api.exchangeratesapi.io/latest";
+	const endpoint = "api/latest";
 	var oParametros = {
 		base: $("#moeda_origem").val()
 	};
@@ -12,19 +12,8 @@ function callback(resultado){
 	
 	var sMoedaOrigem = $("#moeda_origem").val();
 	var sMoedaDestino = $("#moeda_destino").val();
-	
-	// if(resultado.base != sMoedaOrigem){
-		// console.log("diferente");
-		// var fValorOrigem = resultado.rates[sMoedaOrigem];
-		// var fValorDestino = resultado.rates[sMoedaDestino];
-		// if (fValorOrigem != 0){
-			// var fValor = fValorDestino / fValorOrigem;
-		// }
-	// }
-	// else{
-		var fValor = resultado.rates[sMoedaDestino];
-	// }
-	
+	var fValor = resultado.rates[sMoedaDestino];
+
 	var sDataConsulta = resultado.date;
 	sDataConsulta = sDataConsulta.substring(8, 10) + "/" + sDataConsulta.substring(5, 7) + "/" + sDataConsulta.substring(0, 4);
 
