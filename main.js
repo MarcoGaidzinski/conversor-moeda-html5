@@ -12,7 +12,6 @@ function callback(resultado){
 	
 	var sMoedaOrigem = $("#moeda_origem").val();
 	var sMoedaDestino = $("#moeda_destino").val();
-	
 	var fValor = resultado.rates[sMoedaDestino];
 
 	var sDataConsulta = resultado.date;
