@@ -2,7 +2,7 @@ const ovly = { };
 
 ovly.conversor = {
 	versao: "1",
-	// https://api.exchangeratesapi.io/latest
+	// https://api.exchangeratesapi.io/latest 
 	chamarAPI: function(){
 		console.log("Chamando API");
 		var data_consulta = $("#data_consulta").val();
