@@ -6,7 +6,8 @@ ovly.conversor = {
 		console.log("Chamando API");
 		const endpoint = "api/latest";
 		var oParametros = {
-			base: $("#moeda_origem").val()
+			base: $("#moeda_origem").val(),
+			// date: $("#data_consulta").val(),
 		};
 		$.get(endpoint, oParametros, this.callback );
 	},
