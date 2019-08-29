@@ -4,7 +4,6 @@
 		<title>Conversor de Moedas</title>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="style.css"/>
 	</head>
@@ -25,8 +24,14 @@
 				<label for="data_consulta">Data da consulta:</label>
 				<input class="form-control" type="text" id="data_consulta" name="destino" required maxlength="10" value="2012-01-01">
 			</div>
+				
+			<!--<div class="sap.m.DatePicker">-->
+			<!--	<specialDates maxDate="2019-08-29">-->
+			<!--		  <datePicker placeholder="Selected date" type="text" id="date-picker-example" class="sap.m.DatePicker"></datePicker>-->
+			<!--		  <label for="date-picker-example">Try me...</label>					-->
+			<!--	</specialDates>-->
+			<!--</div>-->
 			
-			<!--<input type="submit" value="Converter">-->
 			<button type="button" class="btn btn-primary" onclick="ovly.conversor.chamarAPI()">Converter</button>
 		</form>
 		
