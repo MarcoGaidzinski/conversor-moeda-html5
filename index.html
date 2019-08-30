@@ -20,18 +20,17 @@
 				<input class="form-control" type="text" id="moeda_destino" name="destino" required maxlength="3" value="BRL">
 			</div>
 
-			<div class="form-group">
-				<label for="data_consulta">Data da consulta:</label>
-				<input class="form-control" type="text" id="data_consulta" name="destino" required maxlength="10" value="2012-01-01">
-			</div>
-				
-			<!--<div class="sap.m.DatePicker">-->
-			<!--	<specialDates maxDate="2019-08-29">-->
-			<!--		  <datePicker placeholder="Selected date" type="text" id="date-picker-example" class="sap.m.DatePicker"></datePicker>-->
-			<!--		  <label for="date-picker-example">Try me...</label>					-->
-			<!--	</specialDates>-->
+			<!--<div class="form-group">-->
+			<!--	<label for="data_consulta">Data da consulta:</label>-->
+			<!--	<input class="form-control" type="text" id="data_consulta" name="destino" required maxlength="10" value="2012-01-01">-->
 			<!--</div>-->
-			
+
+			<div class="form-group">
+				  <label for="date-picker-example">Data da Consulta:</label>
+				  <input placeholder="Selected date" type="date" id="data_consulta" class="sap.m.DatePicker">
+				  <!--<input placeholder="Selected date" type="date" id="date-picker-example" class="form-control datepicker">				  -->
+			</div>
+
 			<button type="button" class="btn btn-primary" onclick="ovly.conversor.chamarAPI()">Converter</button>
 		</form>
 		
