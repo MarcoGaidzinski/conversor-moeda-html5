@@ -12,16 +12,16 @@ ovly.conversor = {
 			base: $("#moeda_origem").val(),
 		};
 
-			var jqxhr = $.get(endpoint, oParametros, ovly.conversor.callback) 
-			  .done(function() {
-			    console.log("Sucesso");
-			  })
-			  .fail(function() {
-				console.log("Erro");
-			  })
-			  .always(function() {
-			    console.log("Finished");
-			  });			
+		var jqxhr = $.get(endpoint, oParametros, ovly.conversor.callback) 
+		  .done(function() {
+		    console.log("Sucesso");
+		  })
+		  .fail(function() {
+			console.log("Erro");
+		  })
+		  .always(function() {
+		    console.log("Finished");
+		  });			
 	},
 	callback: function(resultado){
 		var sMoedaDestino = $("#moeda_destino").val();
