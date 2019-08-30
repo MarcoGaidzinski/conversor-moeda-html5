@@ -5,33 +5,25 @@ ovly.conversor = {
 	// https://api.exchangeratesapi.io/latest 
 	chamarAPI: function(){
 		console.log("Chamando API");
+		const domain = "api/";
 		var data_consulta = $("#data_consulta").val();
-		const endpoint = "api/" + data_consulta;
-		const endpoint_latest = "api/latest";
+		var endpoint = domain + (data_consulta? data_consulta : "latest");
 		var oParametros = {
 			base: $("#moeda_origem").val(),
-		//  date: $("#data_consulta").val(), 
 		};
-		// $.get(endpoint, oParametros, this.callback );
-		if( data_consulta == ""){
-			$.get(endpoint_latest, oParametros, this.callback);
-		}
-		else{
+
 			var jqxhr = $.get(endpoint, oParametros, ovly.conversor.callback) 
 			  .done(function() {
 			    console.log("Sucesso");
 			  })
 			  .fail(function() {
 				console.log("Erro");
-				$.get(endpoint_latest, oParametros, ovly.conversor.callback);
 			  })
 			  .always(function() {
 			    console.log("Finished");
 			  });			
-		};
 	},
 	callback: function(resultado){
-		// var sMoedaOrigem = $("#moeda_origem").val();
 		var sMoedaDestino = $("#moeda_destino").val();
 		var fValor = resultado.rates[sMoedaDestino];
 	
